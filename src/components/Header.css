@@ -1,0 +1,44 @@
+.Header{
+    margin: 0;
+    padding: 0;
+    /* Set the height of the header to 100% of the viewport height */
+    width: 100vw;
+    background-color: #e70112;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.Headertext{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: white;
+    border: 5px solid white; /* White border */
+    border-radius: 50px; /* Border radius to make it round */    
+    left: 10px;
+}
+.Navlink{
+    display: inline-block;
+    color: white; /* White text color */
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.Navbutton:hover {
+    background-color: #c1000e; /* Darker red background color on hover */
+    color: white;
+}
+
+
+
+.Navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

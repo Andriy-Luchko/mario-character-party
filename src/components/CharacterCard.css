@@ -1,0 +1,28 @@
+.CharacterCard {
+    border-radius: 10px;
+    border: 5px solid white;
+    /* Adding border-width and border-style */
+    background-color: #e70112;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+    width: 500px;
+}
+
+.Charactericon {
+    height: 300px;
+}
+
+.Characterdescription {
+    width: 500px;
+    overflow: wrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    min-height: 82px;
+    font-size: 18px;
+}
+
+.Charactername {
+    min-height: 49px;
+}
