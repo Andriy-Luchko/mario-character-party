@@ -25,4 +25,40 @@
 
 .Charactername {
     min-height: 49px;
+    margin: 0 auto;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Toprow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.Link{
+    border: solid 2px;
+    border-color: black;
+    background-color: #fac800;
+    border-radius: 8px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.Link:hover{
+    border-color: black;
+   transform: scale(1.1); /* Increase scale on hover */ 
+}
+
+.Deleteicon{
+    width: 30px;
+}
+
+.Editicon{
+    width: 30px;
 }

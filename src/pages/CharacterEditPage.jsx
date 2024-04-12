@@ -1,37 +1,67 @@
 import CharacterCard from '../components/CharacterCard';
-import { useState } from 'react';
-import './AddCharacters.css';
+import { useEffect, useState } from 'react';
+import './CharacterEditPage.css';
 import { supabase } from '../client'
+import { useParams } from "react-router-dom";
 
-function AddCharacters() {
+function CharacterEditPage() {
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let { data, error } = await supabase
+                .from('Characters')
+                .select('*').eq('id',params.id);
+
+            if (error) {
+                console.error('Error fetching data:', error.message);
+                console.error('For character id: ', params.id)
+            } else {
+                if (data.length > 0){
+                    setInputs({
+        'Name': data[0].name,
+        'Description': data[0].description,
+        'Icon': data[0].icon
+                    })
+                    console.log(data[0]);
+                }
+            }
+        };
+
+        fetchData();
+
+
+    }, [])
 
     const characters = ["Mario", "Luigi", "Princess Peach", "Toad", "Bowser", "Yoshi", "Daisy", "Wario", "Waluigi", "Rosalina", "Bowser Jr.", "Boo", "Donkey Kong", "Diddy Kong"];
     const [inputs, setInputs] = useState({
-        'Name': "Mario",
-        'Description': "Hey, I'm Mario! Let's create your character! Give it a name, describe it, and pick an icon. Let's-a-go!",
-        'Icon': "Mario"
+        'Name': "",
+        'Description': "",
+        'Icon': ""
     });
+    const params = useParams();
 
     const handleChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value })
+        console.log(e.target.value);
     }
 
-    const createCharacter = async (event) => {
+    const editCharacter = async (event) => {
         event.preventDefault();
         console.log("bruh");
         await supabase
             .from('Characters')
-            .insert({ name: inputs.Name, description: inputs.Description, icon: inputs.Icon })
+            .update({ name: inputs.Name, description: inputs.Description, icon: inputs.Icon })
+            .eq('id', params.id)
             .select();
 
         window.location = "/viewcharacters";
     }
 
     return (
-        <div className='AddCharacters'>
-            <h2 className='text'>Here you can add new customizable characters</h2>
+        <div className='CharacterEditPage'>
+            <h2 className='text'>Edit Your Character!</h2>
             <div className='Formandpreview'>
-                <CharacterCard name={inputs.Name} icon={inputs.Icon} description={inputs.Description} />
+                <CharacterCard name={inputs.Name} icon={"../../" + inputs.Icon} description={inputs.Description}/>
                 <form>
                     <div className='Optioncontainer'>
                         <div className='Option Name'>
@@ -52,11 +82,11 @@ function AddCharacters() {
                             </select>
                         </div>
                     </div>
-                    <button className='Addcharacter' value='Submit' type='submit' onClick={createCharacter}>Add Character!</button>
+                    <button className='Addcharacter' value='Submit' type='submit' onClick={editCharacter}>Edit Character!</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default AddCharacters;
+export default CharacterEditPage;
