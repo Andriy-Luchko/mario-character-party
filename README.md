@@ -24,10 +24,13 @@ Here's a walkthrough of implemented user stories:
 - [X] **Users can name the crewmate and set the crewmate's attributes by clicking on one of several values**
 - [X] **The site displays a summary page of all the user's added crewmates**
 <img src='https://i.imgur.com/cBLLRQA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 - [X] **A previously created crewmate can be updated from the crewmate list**
 <img src='https://i.imgur.com/rsF8tsa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 - [X] **Each crewmate has a direct, unique link to an info page about them**
 <img src='https://i.imgur.com/LXWgtmx.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 - [X] **A previously created crewmate can be deleted from the crewmate list**
 <img src='https://i.imgur.com/VcbU7Ac.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
